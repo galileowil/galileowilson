@@ -29,18 +29,18 @@ const milestones = [
   },
   {
     year: "2024",
-    title: "Head of BD — Hello Moon",
-    description: "Served as Head of Business Development, working closely with institutional partners, clients, and ecosystem builders. Shaped BD and growth strategy while building infrastructure experience based in NYC.",
-    link: "https://x.com/HelloMoon_io",
-  },
-  {
-    year: "2024",
     title: "CPO & CGO at AP Collective",
     description: "Stepped into executive leadership as Chief Product Officer and Chief Growth Officer. Oversaw client relationships, growth strategy, and internal operational systems across multiple teams and major clients. Scaled from finding the company to managing 15+ people.",
     link: "https://x.com/apcollective",
   },
   {
-    year: "2024-2025",
+    year: "2025",
+    title: "Head of BD — Hello Moon",
+    description: "Served as Head of Business Development, working closely with institutional partners, clients, and ecosystem builders. Shaped BD and growth strategy while building infrastructure experience based in NYC.",
+    link: "https://x.com/HelloMoon_io",
+  },
+  {
+    year: "2025",
     title: "CPO & CGO at AP Collective (Continued)",
     description: "Continued executive leadership at AP Collective through mid-2025, driving growth initiatives and managing key client relationships while scaling internal operations.",
     link: "https://x.com/apcollective",
