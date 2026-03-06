@@ -35,7 +35,7 @@ export function Hero() {
               <img 
                 src="/profile.jpg" 
                 alt="Galileo Wilson"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
             </div>
