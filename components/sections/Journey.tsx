@@ -7,14 +7,24 @@ import { Separator } from "@/components/ui/separator";
 
 const milestones = [
   {
-    year: "Today",
-    title: "Founder, Wilson Growth",
-    description: "Building Wilson Growth into a next-generation advisory and growth firm. Focused on helping ambitious companies build faster, scale smarter, and win their markets.",
+    year: "2016",
+    title: "Early Entrepreneur",
+    description: "Began entrepreneurial journey at age 14 building a sneaker resale business and running online communities. This evolved into operating NFT communities and managing collaborations between brands, creators, and digital communities.",
   },
   {
-    year: "2024-2025",
-    title: "CPO & CGO at AP Collective",
-    description: "Stepped into executive leadership as Chief Product Officer and Chief Growth Officer. Oversaw client relationships, growth strategy, and internal operational systems across multiple teams and major clients. Scaled from finding the company to managing 15+ people.",
+    year: "2019",
+    title: "KOL Management & Collaborations",
+    description: "Moved into collaboration management and KOL strategy, working closely with creators and helping companies structure influencer-driven growth systems. This phase laid the foundation for deep relationships with creators across the industry.",
+  },
+  {
+    year: "2021",
+    title: "Web3 Growth Advisor",
+    description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics. Built relationships with hundreds of creators across the global tech and crypto ecosystem.",
+  },
+  {
+    year: "2023",
+    title: "AP Collective — Founding Team",
+    description: "Joined the founding stages of AP Collective. What began as a small KOL management operation quickly evolved into a large growth agency working with major companies in the Web3 space.",
     link: "https://x.com/apcollective",
   },
   {
@@ -24,25 +34,20 @@ const milestones = [
     link: "https://x.com/HelloMoon_io",
   },
   {
-    year: "2023",
-    title: "AP Collective — Founding Team",
-    description: "Joined the founding stages of AP Collective. What began as a small KOL management operation quickly evolved into a large growth agency working with major companies in the Web3 space.",
+    year: "2024",
+    title: "CPO & CGO at AP Collective",
+    description: "Stepped into executive leadership as Chief Product Officer and Chief Growth Officer. Oversaw client relationships, growth strategy, and internal operational systems across multiple teams and major clients. Scaled from finding the company to managing 15+ people.",
     link: "https://x.com/apcollective",
   },
   {
-    year: "2021-2023",
-    title: "Web3 Growth Advisor",
-    description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics. Built relationships with hundreds of creators across the global tech and crypto ecosystem.",
+    year: "2024",
+    title: "Founded Wilson Growth",
+    description: "Launched Wilson Growth as a strategic growth and advisory firm. Focused on helping ambitious companies build faster, scale smarter, and win their markets through AI, partnerships, and data-driven execution.",
   },
   {
-    year: "2019-2021",
-    title: "KOL Management & Collaborations",
-    description: "Moved into collaboration management and KOL strategy, working closely with creators and helping companies structure influencer-driven growth systems. This phase laid the foundation for deep relationships with creators across the industry.",
-  },
-  {
-    year: "Age 14",
-    title: "Early Entrepreneur",
-    description: "Began entrepreneurial journey building a sneaker resale business and running online communities. This evolved into operating NFT communities and managing collaborations between brands, creators, and digital communities.",
+    year: "Today",
+    title: "Scaling Wilson Growth",
+    description: "Building Wilson Growth into a next-generation advisory and growth firm. Working with a select number of ambitious companies each year to drive exponential growth and market leadership.",
   },
 ];
 
