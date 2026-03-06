@@ -29,16 +29,51 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Avatar */}
-          <div className="mb-8 flex justify-center">
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5">
+          {/* Dual Avatar */}
+          <div className="mb-8 flex justify-center items-center gap-4">
+            {/* Professional Photo */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5"
+            >
               <img 
                 src="/profile.jpg" 
                 alt="Galileo Wilson"
                 className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
-            </div>
+            </motion.div>
+            
+            {/* VS Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white/60 border border-white/10"
+            >
+              VS
+            </motion.div>
+            
+            {/* Penguin Avatar */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5"
+            >
+              <img 
+                src="/avatar.jpg" 
+                alt="@galileowil"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
+              {/* Fun badge */}
+              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-xs border-2 border-background">
+                🐧
+              </div>
+            </motion.div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
@@ -58,10 +93,19 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-10"
+            className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-2"
           >
             Building exceptional companies through strategic vision, 
             operational excellence, and transformative partnerships.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="text-sm text-white/30 max-w-2xl mx-auto mb-10 italic"
+          >
+            Also known as that penguin guy on X
           </motion.p>
 
           <motion.div
