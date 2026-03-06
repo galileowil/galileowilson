@@ -31,11 +31,13 @@ export function Hero() {
         >
           {/* Avatar */}
           <div className="mb-8 flex justify-center">
-            <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-white/10">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-              <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-900 flex items-center justify-center text-2xl font-bold text-white/80">
-                GW
-              </div>
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5">
+              <img 
+                src="/profile.jpg" 
+                alt="Galileo Wilson"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
             </div>
           </div>
 
