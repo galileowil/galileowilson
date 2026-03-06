@@ -9,12 +9,24 @@ const milestones = [
   {
     year: "2024",
     title: "CEO at Wilson Growth",
-    description: "Founded Wilson Growth to help companies achieve exponential growth through strategic consulting and operational support.",
+    description: "Founded Wilson Growth to help Web3 companies achieve exponential growth through strategic consulting and operational support.",
+  },
+  {
+    year: "2023",
+    title: "CPO & CGO at AP Collective",
+    description: "From finding the company to managing 15+ people. Working with every client as Chief Product Officer & Chief Growth Officer, leading all growth initiatives.",
+    link: "https://x.com/apcollective",
   },
   {
     year: "2022",
-    title: "VP of Operations",
-    description: "Led operations at a Series B startup, scaling the team from 20 to 80 employees and achieving 300% revenue growth.",
+    title: "Head of BD & Growth at HelloMoon",
+    description: "Shaped BD and growth strategy for infrastructure platform based in NYC. Built partnerships and scaled user acquisition.",
+    link: "https://x.com/HelloMoon_io",
+  },
+  {
+    year: "2021",
+    title: "Web3 Growth Advisor",
+    description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics.",
   },
   {
     year: "2020",
@@ -25,11 +37,6 @@ const milestones = [
     year: "2018",
     title: "Senior Consultant",
     description: "Advised Fortune 500 companies on digital transformation and operational efficiency initiatives.",
-  },
-  {
-    year: "2016",
-    title: "Business Analyst",
-    description: "Started career at a leading management consulting firm, building foundational expertise in data analysis and strategy.",
   },
 ];
 
