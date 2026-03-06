@@ -7,17 +7,17 @@ import { Separator } from "@/components/ui/separator";
 
 const milestones = [
   {
-    year: "2016",
+    year: "2022",
     title: "Early Entrepreneur",
-    description: "Began entrepreneurial journey at age 14 building a sneaker resale business and running online communities. This evolved into operating NFT communities and managing collaborations between brands, creators, and digital communities.",
+    description: "Began entrepreneurial journey building a sneaker resale business and running online communities. This evolved into operating NFT communities and managing collaborations between brands, creators, and digital communities.",
   },
   {
-    year: "2019",
+    year: "2022",
     title: "KOL Management & Collaborations",
     description: "Moved into collaboration management and KOL strategy, working closely with creators and helping companies structure influencer-driven growth systems. This phase laid the foundation for deep relationships with creators across the industry.",
   },
   {
-    year: "2021",
+    year: "2023",
     title: "Web3 Growth Advisor",
     description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics. Built relationships with hundreds of creators across the global tech and crypto ecosystem.",
   },
@@ -40,7 +40,13 @@ const milestones = [
     link: "https://x.com/apcollective",
   },
   {
-    year: "2024",
+    year: "2024-2025",
+    title: "CPO & CGO at AP Collective (Continued)",
+    description: "Continued executive leadership at AP Collective through mid-2025, driving growth initiatives and managing key client relationships while scaling internal operations.",
+    link: "https://x.com/apcollective",
+  },
+  {
+    year: "Nov 2024",
     title: "Founded Wilson Growth",
     description: "Launched Wilson Growth as a strategic growth and advisory firm. Focused on helping ambitious companies build faster, scale smarter, and win their markets through AI, partnerships, and data-driven execution.",
   },
