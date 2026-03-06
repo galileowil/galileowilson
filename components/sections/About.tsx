@@ -22,43 +22,41 @@ export function About() {
             <Separator className="flex-1 bg-white/10" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-            Building the future through{" "}
-            <span className="text-white/60">strategic growth</span> and{" "}
-            <span className="text-white/60">operational excellence</span>.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12">
+            Wilson Growth
           </h2>
 
-          <div className="space-y-6 text-lg text-white/50 leading-relaxed">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              As the CEO of Wilson Growth, I specialize in transforming ambitious visions 
-              into market-leading realities. With a track record spanning multiple industries, 
-              I&apos;ve helped companies scale from early-stage startups to established market players.
-            </motion.p>
+          <div className="space-y-8 text-lg text-white/60 leading-relaxed">
+            <p>
+              Wilson Growth is a strategic growth and advisory firm focused on helping ambitious companies scale faster and smarter.
+            </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              My approach combines data-driven decision making with a deep understanding 
-              of human-centered leadership. I believe that sustainable growth comes from 
-              building exceptional teams, fostering innovation, and maintaining unwavering 
-              focus on delivering value to customers.
-            </motion.p>
+            <p>
+              We work with founders, leadership teams, and emerging technology companies to build scalable growth systems, optimize operations, and unlock new market opportunities through partnerships, AI, and data-driven execution.
+            </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Whether it&apos;s optimizing operations, securing strategic partnerships, or 
-              navigating complex market dynamics, I bring a proven framework for success 
-              that has generated over $50M in revenue across portfolio companies.
-            </motion.p>
+            <div className="py-8">
+              <h3 className="text-xl font-semibold text-white mb-6">Our Expertise</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  "Strategic growth systems",
+                  "Artificial intelligence consulting",
+                  "Crypto and Web3 ecosystem growth",
+                  "Brand positioning and narrative",
+                  "Creator ecosystem development",
+                  "Operational infrastructure",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+                    <span className="text-white/50">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="text-white/40">
+              The firm combines strategic thinking with hands-on execution, helping companies move from early traction to global scale.
+            </p>
           </div>
         </motion.div>
       </div>

@@ -69,7 +69,6 @@ export function Hero() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
-              {/* Fun badge */}
               <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-xs border-2 border-background">
                 🐧
               </div>
@@ -86,7 +85,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-xl sm:text-2xl md:text-3xl text-white/60 font-light mb-4"
           >
-            CEO of Wilson Growth
+            Founder of Wilson Growth
           </motion.p>
 
           <motion.p
@@ -95,8 +94,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-2"
           >
-            Building exceptional companies through strategic vision, 
-            operational excellence, and transformative partnerships.
+            Building the future through strategic growth, operational excellence, and artificial intelligence.
           </motion.p>
 
           <motion.p
@@ -118,7 +116,7 @@ export function Hero() {
               size="lg" 
               className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-base font-medium group"
             >
-              Get in Touch
+              Work With Me
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
@@ -126,7 +124,7 @@ export function Hero() {
               variant="outline" 
               className="rounded-full px-8 h-12 text-base font-medium border-white/20 hover:bg-white/5"
             >
-              View Projects
+              View Track Record
             </Button>
           </motion.div>
 
@@ -136,11 +134,11 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-12 flex justify-center gap-6"
           >
-            <a href="#" className="text-white/30 hover:text-white/60 transition-colors">
-              <Linkedin className="h-5 w-5" />
+            <a href="https://x.com/galileowil" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
+              <Twitter className="h-5 w-5" />
             </a>
             <a href="#" className="text-white/30 hover:text-white/60 transition-colors">
-              <Twitter className="h-5 w-5" />
+              <Linkedin className="h-5 w-5" />
             </a>
           </motion.div>
         </motion.div>

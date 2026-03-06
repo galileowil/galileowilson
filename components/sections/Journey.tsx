@@ -7,36 +7,42 @@ import { Separator } from "@/components/ui/separator";
 
 const milestones = [
   {
-    year: "2024",
-    title: "CEO at Wilson Growth",
-    description: "Founded Wilson Growth to help Web3 companies achieve exponential growth through strategic consulting and operational support.",
+    year: "Today",
+    title: "Founder, Wilson Growth",
+    description: "Building Wilson Growth into a next-generation advisory and growth firm. Focused on helping ambitious companies build faster, scale smarter, and win their markets.",
   },
   {
-    year: "2023",
+    year: "2024-2025",
     title: "CPO & CGO at AP Collective",
-    description: "From finding the company to managing 15+ people. Working with every client as Chief Product Officer & Chief Growth Officer, leading all growth initiatives.",
+    description: "Stepped into executive leadership as Chief Product Officer and Chief Growth Officer. Oversaw client relationships, growth strategy, and internal operational systems across multiple teams and major clients. Scaled from finding the company to managing 15+ people.",
     link: "https://x.com/apcollective",
   },
   {
-    year: "2022",
-    title: "Head of BD & Growth at HelloMoon",
-    description: "Shaped BD and growth strategy for infrastructure platform based in NYC. Built partnerships and scaled user acquisition.",
+    year: "2024",
+    title: "Head of BD — Hello Moon",
+    description: "Served as Head of Business Development, working closely with institutional partners, clients, and ecosystem builders. Shaped BD and growth strategy while building infrastructure experience based in NYC.",
     link: "https://x.com/HelloMoon_io",
   },
   {
-    year: "2021",
+    year: "2023",
+    title: "AP Collective — Founding Team",
+    description: "Joined the founding stages of AP Collective. What began as a small KOL management operation quickly evolved into a large growth agency working with major companies in the Web3 space.",
+    link: "https://x.com/apcollective",
+  },
+  {
+    year: "2021-2023",
     title: "Web3 Growth Advisor",
-    description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics.",
+    description: "Started advising DeFi protocols and NFT projects on growth strategy, community building, and tokenomics. Built relationships with hundreds of creators across the global tech and crypto ecosystem.",
   },
   {
-    year: "2020",
-    title: "Director of Strategy",
-    description: "Developed and executed growth strategies that expanded market presence into 5 new international markets.",
+    year: "2019-2021",
+    title: "KOL Management & Collaborations",
+    description: "Moved into collaboration management and KOL strategy, working closely with creators and helping companies structure influencer-driven growth systems. This phase laid the foundation for deep relationships with creators across the industry.",
   },
   {
-    year: "2018",
-    title: "Senior Consultant",
-    description: "Advised Fortune 500 companies on digital transformation and operational efficiency initiatives.",
+    year: "Age 14",
+    title: "Early Entrepreneur",
+    description: "Began entrepreneurial journey building a sneaker resale business and running online communities. This evolved into operating NFT communities and managing collaborations between brands, creators, and digital communities.",
   },
 ];
 
@@ -92,6 +98,16 @@ export function Journey() {
                   <div className="pl-8 md:pl-12 md:w-1/2">
                     <h3 className="text-xl font-semibold text-white mb-2">{milestone.title}</h3>
                     <p className="text-white/50 leading-relaxed">{milestone.description}</p>
+                    {milestone.link && (
+                      <a 
+                        href={milestone.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-2 text-sm text-white/30 hover:text-white/60 transition-colors"
+                      >
+                        View company →
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}
