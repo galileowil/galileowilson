@@ -114,13 +114,6 @@ export function Hero() {
           >
             <Button 
               size="lg" 
-              className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-base font-medium group"
-            >
-              Work With Me
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button 
-              size="lg" 
               variant="outline" 
               className="rounded-full px-8 h-12 text-base font-medium border-white/20 hover:bg-white/5"
             >
