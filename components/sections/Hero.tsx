@@ -103,7 +103,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm text-white/30 max-w-2xl mx-auto mb-10 italic"
           >
-            Also known as that penguin guy on X
+            Also known as @galileowilson on X
           </motion.p>
 
           <motion.div
@@ -134,7 +134,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-12 flex justify-center gap-6"
           >
-            <a href="https://x.com/galileowil" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
+            <a href="https://x.com/galileowilson" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
               <Twitter className="h-5 w-5" />
             </a>
             <a href="#" className="text-white/30 hover:text-white/60 transition-colors">

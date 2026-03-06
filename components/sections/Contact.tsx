@@ -61,7 +61,7 @@ export function Contact() {
               <p className="mt-6 text-sm text-white/30">
                 Or DM me on{" "}
                 <a 
-                  href="https://x.com/galileowil" 
+                  href="https://x.com/galileowilson" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/50 hover:text-white/70 transition-colors"
