@@ -7,48 +7,63 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Raydium",
-    description: "Strategic growth initiatives for leading Solana DEX. Driving liquidity expansion and trading volume through targeted partnerships and ecosystem development.",
-    tags: ["DeFi", "Solana", "DEX", "Growth"],
+    description: "Strategic growth initiatives for leading Solana DEX. Driving liquidity expansion and trading volume through targeted partnerships.",
+    tags: ["DeFi", "Solana", "DEX"],
     link: "https://x.com/Raydium",
+    logo: "/raydium.png",
     featured: true,
   },
   {
     title: "Avalanche",
-    description: "Ecosystem growth and strategic advisory for Layer 1 blockchain platform. Scaling solutions and developer onboarding initiatives.",
+    description: "Ecosystem growth and strategic advisory for Layer 1 blockchain platform. Scaling solutions and developer onboarding.",
     tags: ["Layer 1", "Blockchain", "Infrastructure"],
     link: "https://x.com/avax",
+    logo: "/avalanche.png",
     featured: true,
   },
   {
     title: "Ronin Network",
-    description: "Growth strategy for gaming-focused blockchain powering Axie Infinity. NFT ecosystem development and player acquisition.",
+    description: "Growth strategy for gaming-focused blockchain powering Axie Infinity. NFT ecosystem development.",
     tags: ["Gaming", "Blockchain", "NFT"],
     link: "https://x.com/Ronin_Network",
+    logo: "/ronin.png",
     featured: true,
   },
   {
     title: "Abstract Chain",
-    description: "Consumer blockchain platform focused on mainstream adoption. Strategic positioning and go-to-market execution.",
-    tags: ["Blockchain", "Consumer", "Strategy"],
+    description: "Consumer blockchain platform focused on mainstream adoption. Strategic positioning and go-to-market.",
+    tags: ["Blockchain", "Consumer"],
     link: "https://x.com/AbstractChain",
+    logo: null,
     featured: true,
   },
   {
     title: "OpenLedger",
     description: "DeFi infrastructure and growth strategy. Building the future of decentralized financial systems.",
-    tags: ["DeFi", "Infrastructure", "Strategy"],
+    tags: ["DeFi", "Infrastructure"],
     link: "https://x.com/OpenledgerHQ",
+    logo: null,
     featured: true,
   },
   {
     title: "NEAR Protocol",
-    description: "Ecosystem development and strategic partnerships for scalable Layer 1 blockchain with human-readable accounts.",
-    tags: ["Layer 1", "Blockchain", "Ecosystem"],
+    description: "Ecosystem development and strategic partnerships for scalable Layer 1 blockchain.",
+    tags: ["Layer 1", "Blockchain"],
     link: "https://x.com/nearprotocol",
+    logo: "/near.png",
+    featured: true,
+  },
+  {
+    title: "Pudgy Penguins",
+    description: "Strategic advisory for leading NFT brand and consumer IP. Brand expansion and community growth.",
+    tags: ["NFT", "Brand", "Consumer"],
+    link: "https://x.com/pudgypenguins",
+    logo: "/pudgy.png",
     featured: true,
   },
   {
@@ -56,13 +71,15 @@ const projects = [
     description: "DeFi infrastructure and growth advisory. Building next-generation financial primitives.",
     tags: ["DeFi", "Infrastructure"],
     link: "https://x.com/Sophon",
+    logo: null,
     featured: false,
   },
   {
     title: "Zoku",
-    description: "Advisory role focused on affiliate business development and strategic growth initiatives.",
-    tags: ["Advisory", "Affiliate", "Growth"],
+    description: "Advisory role focused on affiliate business development and strategic growth.",
+    tags: ["Advisory", "Affiliate"],
     link: "https://x.com/zokuxyz",
+    logo: null,
     featured: false,
   },
   {
@@ -70,6 +87,7 @@ const projects = [
     description: "Sports and gaming platform growth strategy.",
     tags: ["Sports", "Gaming"],
     link: "https://x.com/sportfun",
+    logo: null,
     featured: false,
   },
   {
@@ -77,20 +95,15 @@ const projects = [
     description: "DeFi and gaming ecosystem development.",
     tags: ["DeFi", "Gaming"],
     link: "https://x.com/LegacyNetworkio",
+    logo: null,
     featured: false,
-  },
-  {
-    title: "Pudgy Penguins",
-    description: "Strategic advisory for leading NFT brand and consumer IP. Brand expansion and community growth.",
-    tags: ["NFT", "Brand", "Consumer"],
-    link: "https://x.com/pudgypenguins",
-    featured: true,
   },
   {
     title: "Revolving Games",
     description: "Gaming studio advisory and growth strategy.",
     tags: ["Gaming", "Advisory"],
     link: "https://x.com/Revolving_Games",
+    logo: null,
     featured: false,
   },
   {
@@ -98,6 +111,7 @@ const projects = [
     description: "NFT tooling and automation platform advisory.",
     tags: ["NFT", "Tools"],
     link: "https://x.com/alphabot",
+    logo: null,
     featured: false,
   },
   {
@@ -105,6 +119,7 @@ const projects = [
     description: "Web3 gaming ecosystem and infrastructure.",
     tags: ["Gaming", "Web3"],
     link: "https://x.com/game7hq",
+    logo: null,
     featured: false,
   },
   {
@@ -112,6 +127,7 @@ const projects = [
     description: "Gaming platform growth and strategy.",
     tags: ["Gaming"],
     link: "https://x.com/playgoatgaming",
+    logo: null,
     featured: false,
   },
 ];
@@ -163,9 +179,21 @@ export function Projects() {
                 <Card className="group bg-white/[0.02] border-white/10 hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500 h-full">
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="flex justify-between items-start mb-4">
-                      <Badge variant="secondary" className="bg-white/10 text-white/70 hover:bg-white/20">
-                        Featured
-                      </Badge>
+                      {project.logo ? (
+                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center overflow-hidden">
+                          <Image 
+                            src={project.logo} 
+                            alt={project.title}
+                            width={40}
+                            height={40}
+                            className="object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <Badge variant="secondary" className="bg-white/10 text-white/70 hover:bg-white/20">
+                          Featured
+                        </Badge>
+                      )}
                       <ArrowUpRight className="h-5 w-5 text-white/30 group-hover:text-white/60 transition-colors" />
                     </div>
 
