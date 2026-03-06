@@ -52,23 +52,41 @@ export function Contact() {
                 className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-base font-medium group"
                 asChild
               >
-                <a href="mailto:galileo@wilsongrowth.com">
+                <a href="mailto:wilson.growth@outlook.com">
                   Get in Touch
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
 
-              <p className="mt-6 text-sm text-white/30">
-                Or DM me on{" "}
-                <a 
-                  href="https://x.com/galileowilson" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/50 hover:text-white/70 transition-colors"
-                >
-                  X / Twitter
-                </a>
-              </p>
+              <div className="mt-8 pt-8 border-t border-white/10">
+                <p className="text-sm text-white/40 mb-4">Connect directly:</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a 
+                    href="https://x.com/galileowilson" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
+                  >
+                    X: @galileowilson
+                  </a>
+                  <span className="hidden sm:inline text-white/20">•</span>
+                  <a 
+                    href="https://t.me/GalileoWil" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
+                  >
+                    TG: @GalileoWil
+                  </a>
+                  <span className="hidden sm:inline text-white/20">•</span>
+                  <a 
+                    href="mailto:wilson.growth@outlook.com"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
+                  >
+                    wilson.growth@outlook.com
+                  </a>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
