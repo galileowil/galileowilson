@@ -29,14 +29,27 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
+          {/* Location Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/50">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              Dubai, United Arab Emirates
+            </span>
+          </motion.div>
+
           {/* Dual Avatar */}
-          <div className="mb-8 flex justify-center items-center gap-4">
+          <div className="mb-8 flex justify-center items-center gap-6">
             {/* Professional Photo */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/10"
             >
               <img 
                 src="/profile.jpg" 
@@ -51,7 +64,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold text-white/60 border border-white/10"
+              className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-white/60 border border-white/10"
             >
               VS
             </motion.div>
@@ -61,15 +74,15 @@ export function Hero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/5"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/10"
             >
               <img 
                 src="/avatar.jpg" 
-                alt="@galileowil"
+                alt="@galileowilson"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-xs border-2 border-background">
+              <div className="absolute -bottom-1 -right-1 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-sm border-2 border-background">
                 🐧
               </div>
             </motion.div>
