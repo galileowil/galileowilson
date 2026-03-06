@@ -41,8 +41,8 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "Head of BD — Hello Moon",
-    description: "Served as Head of Business Development, working closely with institutional partners, clients, and ecosystem builders. Shaped BD and growth strategy while building infrastructure experience based in NYC.",
+    title: "Business Development Strategist — Hello Moon",
+    description: "Served as Business Development Strategist, working closely with institutional partners, clients, and ecosystem builders. Shaped BD and growth strategy while building infrastructure experience based in NYC.",
     link: "https://x.com/HelloMoon_io",
   },
   {
