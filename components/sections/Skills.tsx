@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { 
   TrendingUp, 
   Users, 
@@ -59,56 +57,91 @@ const skills = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 relative" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-32 sm:py-40 relative" ref={ref}>
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
         >
-          <div className="flex items-center gap-4 mb-8">
-            <span className="text-white/30 text-sm font-medium uppercase tracking-widest">Capabilities</span>
-            <Separator className="flex-1 bg-white/10" />
-          </div>
+          {/* Section label */}
+          <motion.div variants={itemVariants} className="mb-12">
+            <span className="text-xs uppercase tracking-[0.2em] text-white/30 font-medium">
+              Capabilities
+            </span>
+          </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+          {/* Main heading */}
+          <motion.h2 
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight"
+          >
             What I Bring
-          </h2>
+          </motion.h2>
 
-          <p className="text-white/50 text-lg mb-16 max-w-2xl">
-            Working with Wilson Growth means working with someone who combines strategy, execution, and network access.
-          </p>
+          <motion.p 
+            variants={itemVariants}
+            className="text-white/40 text-lg mb-20 max-w-xl leading-relaxed"
+          >
+            Working with Wilson Growth means working with someone who combines 
+            strategy, execution, and network access.
+          </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* Skills Grid */}
+          <div className="grid md:grid-cols-2 gap-px bg-white/5 rounded-lg overflow-hidden">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ 
                   duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: [0.16, 1, 0.3, 1] 
+                  delay: 0.2 + index * 0.06,
+                  ease: [0.16, 1, 0.3, 1]
                 }}
+                className="bg-[#0a0a0a] p-6 sm:p-8 group hover:bg-white/[0.02] transition-colors duration-500"
               >
-                <Card className="bg-white/[0.02] border-white/10 hover:bg-white/[0.04] transition-all duration-500 h-full">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
-                        <skill.icon className="h-5 w-5 text-white/60" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">{skill.title}</h3>
-                        <p className="text-white/50 text-sm leading-relaxed">{skill.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-white/10 transition-colors">
+                    <skill.icon className="h-4 w-4 text-white/40 group-hover:text-white/60 transition-colors" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium text-white mb-2 tracking-tight">
+                      {skill.title}
+                    </h3>
+                    <p className="text-white/40 text-sm leading-relaxed">
+                      {skill.description}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

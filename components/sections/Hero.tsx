@@ -1,168 +1,152 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Linkedin, Twitter } from "lucide-react";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 40, rotateX: -15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export function Hero() {
+  const titleWords = ["Galileo", "Wilson"];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/95" />
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 gradient-bg" />
       
-      {/* Subtle grid pattern */}
+      {/* Very subtle noise texture */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.015]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
 
-      {/* Glow effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[150px]" />
+      {/* Soft glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-white/[0.03] rounded-full blur-[120px]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-8"
         >
-          {/* Location Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/50">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              Dubai, United Arab Emirates
+          {/* Location */}
+          <motion.div variants={itemVariants}>
+            <span className="inline-flex items-center gap-2 text-sm text-white/40 tracking-wide">
+              <span className="w-1.5 h-1.5 bg-emerald-500/80 rounded-full animate-pulse" />
+              Dubai, UAE
             </span>
           </motion.div>
 
-          {/* Dual Avatar */}
-          <div className="mb-8 flex justify-center items-center gap-6">
-            {/* Professional Photo */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/10"
-            >
-              <img 
-                src="/profile.jpg" 
-                alt="Galileo Wilson"
-                className="w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
-            </motion.div>
-            
-            {/* VS Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-white/60 border border-white/10"
-            >
-              VS
-            </motion.div>
-            
-            {/* Penguin Avatar */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-white/10"
-            >
-              <img 
-                src="/avatar.jpg" 
-                alt="@galileowilson"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full" />
-              <div className="absolute -bottom-1 -right-1 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-sm border-2 border-background">
-                🐧
-              </div>
-            </motion.div>
-          </div>
+          {/* Main Title - Large Typography */}
+          <motion.div 
+            variants={itemVariants}
+            className="overflow-hidden"
+          >
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tighter leading-[0.9]">
+              {titleWords.map((word, i) => (
+                <motion.span
+                  key={word}
+                  variants={wordVariants}
+                  className="inline-block gradient-text"
+                  style={{ marginRight: i === 0 ? "0.25em" : 0 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h1>
+          </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="gradient-text">Galileo Wilson</span>
-          </h1>
-          
+          {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-xl sm:text-2xl md:text-3xl text-white/60 font-light mb-4"
+            variants={itemVariants}
+            className="text-lg sm:text-xl text-white/50 font-light tracking-tight"
           >
             Founder of Wilson Growth
           </motion.p>
 
+          {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-2"
+            variants={itemVariants}
+            className="text-base sm:text-lg text-white/35 max-w-lg mx-auto leading-relaxed"
           >
-            Building the future through strategic growth, operational excellence, and artificial intelligence.
+            Strategic growth and advisory for ambitious companies. 
+            Scaling through AI, partnerships, and data-driven execution.
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm text-white/30 max-w-2xl mx-auto mb-10 italic"
-          >
-            Also known as @galileowilson on X
-          </motion.p>
-
+          {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            variants={itemVariants}
+            className="flex justify-center gap-6 pt-4"
           >
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="rounded-full px-8 h-12 text-base font-medium border-white/20 hover:bg-white/5"
+            <a 
+              href="https://x.com/galileowilson" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
             >
-              View Track Record
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-12 flex justify-center gap-6"
-          >
-            <a href="https://x.com/galileowilson" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
-              <Twitter className="h-5 w-5" />
+              <Twitter className="h-4 w-4" />
+              <span className="text-sm">@galileowilson</span>
             </a>
-            <a href="#" className="text-white/30 hover:text-white/60 transition-colors">
-              <Linkedin className="h-5 w-5" />
+            <a 
+              href="#" 
+              className="group flex items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span className="text-sm">LinkedIn</span>
             </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - minimal */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-5 h-8 rounded-full border border-white/10 flex justify-center pt-2"
         >
-          <div className="w-1 h-2 bg-white/40 rounded-full" />
+          <div className="w-0.5 h-1.5 bg-white/30 rounded-full" />
         </motion.div>
       </motion.div>
     </section>
