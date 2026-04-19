@@ -203,13 +203,13 @@ export function Projects() {
               <div className="flex items-start justify-between mb-8">
                 <div className="flex items-center gap-4">
                   {project.logo ? (
-                    <div className="w-12 h-12 rounded-full bg-cream/5 flex items-center justify-center overflow-hidden ring-1 ring-cream/10">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden ring-1 ring-cream/10">
                       <Image
                         src={project.logo}
                         alt={project.title}
-                        width={36}
-                        height={36}
-                        className="object-contain"
+                        fill
+                        sizes="48px"
+                        className="object-cover"
                       />
                     </div>
                   ) : (
