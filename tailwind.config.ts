@@ -9,7 +9,13 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
+  			serif: ['var(--font-serif)', 'ui-serif', 'Georgia', 'serif'],
+  		},
   		colors: {
+  			cream: 'hsl(var(--cream))',
+  			gold: 'hsl(var(--gold))',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

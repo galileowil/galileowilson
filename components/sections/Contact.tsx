@@ -1,128 +1,143 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Send, Twitter, Mail } from "lucide-react";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
+const ease = [0.16, 1, 0.3, 1] as const;
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
+const contacts = [
+  {
+    icon: Twitter,
+    label: "X",
+    value: "@galileowilson",
+    href: "https://x.com/galileowilson",
   },
-};
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "galileowilson",
+    href: "https://www.linkedin.com/in/galileowilson/",
+  },
+  {
+    icon: Send,
+    label: "Telegram",
+    value: "@GalileoWil",
+    href: "https://t.me/GalileoWil",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "wilson.growth@outlook.com",
+    href: "mailto:wilson.growth@outlook.com",
+  },
+];
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-32 sm:py-40 relative" ref={ref}>
-      <div className="max-w-3xl mx-auto px-6 sm:px-8">
+    <section id="contact" className="py-32 sm:py-48 relative" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease }}
+          className="mb-20 flex items-baseline justify-between"
         >
-          {/* Section label */}
-          <motion.div variants={itemVariants} className="mb-12">
-            <span className="text-xs uppercase tracking-[0.2em] text-white/30 font-medium">
-              Contact
-            </span>
-          </motion.div>
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/30">
+            — Contact
+          </span>
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/20 hidden sm:inline">
+            Let&apos;s talk
+          </span>
+        </motion.div>
 
-          {/* Main heading */}
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight"
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, ease, delay: 0.1 }}
+            className="lg:col-span-7"
           >
-            Work With Wilson Growth
-          </motion.h2>
+            <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl tracking-display text-cream leading-[0.95] mb-10">
+              Work with
+              <br />
+              <span className="italic text-cream/70">Wilson Growth.</span>
+            </h2>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-white/40 text-lg mb-16 max-w-xl leading-relaxed"
-          >
-            Wilson Growth works with a limited number of companies each year. 
-            If you are building something ambitious and want help scaling it globally, reach out.
-          </motion.p>
-
-          {/* CTA Card */}
-          <motion.div 
-            variants={itemVariants}
-            className="p-8 sm:p-12 rounded-lg border border-white/10 bg-white/[0.02] text-center"
-          >
-            <h3 className="text-xl sm:text-2xl font-medium text-white mb-4 tracking-tight">
-              Let&apos;s Build Together
-            </h3>
-            
-            <p className="text-white/40 mb-8 max-w-md mx-auto">
-              Ready to scale your company? Send me an email and let&apos;s discuss 
-              how Wilson Growth can help.
+            <p className="text-lg text-cream/50 max-w-xl leading-relaxed mb-12">
+              We work with a limited number of companies each year. If
+              you&apos;re building something ambitious and want help scaling it
+              globally — reach out.
             </p>
 
             <a
               href="mailto:wilson.growth@outlook.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-white/90 transition-colors group"
+              className="inline-flex items-center gap-3 px-7 py-4 bg-cream text-background rounded-full text-sm font-medium tracking-wide hover:bg-gold transition-all duration-500 group"
             >
-              Get in Touch
+              Start a conversation
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-
-            {/* Contact links */}
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-                <a 
-                  href="https://x.com/galileowilson" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/40 hover:text-white/70 transition-colors"
-                >
-                  X / @galileowilson
-                </a>
-                <span className="hidden sm:inline text-white/20">•</span>
-                <a 
-                  href="https://t.me/GalileoWil" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/40 hover:text-white/70 transition-colors"
-                >
-                  Telegram / @GalileoWil
-                </a>
-                <span className="hidden sm:inline text-white/20">•</span>
-                <a 
-                  href="mailto:wilson.growth@outlook.com"
-                  className="text-white/40 hover:text-white/70 transition-colors"
-                >
-                  wilson.growth@outlook.com
-                </a>
-              </div>
-            </div>
           </motion.div>
 
-          {/* Footer */}
-          <motion.p 
-            variants={itemVariants}
-            className="text-center text-white/20 text-sm mt-20"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, ease, delay: 0.25 }}
+            className="lg:col-span-5 space-y-px bg-cream/[0.06]"
           >
-            © {new Date().getFullYear()} Wilson Growth. All rights reserved.
-          </motion.p>
+            {contacts.map((contact, index) => (
+              <motion.a
+                key={contact.label}
+                href={contact.href}
+                target={contact.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  contact.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                initial={{ opacity: 0, x: 10 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.4 + index * 0.08,
+                  ease,
+                }}
+                className="flex items-center justify-between p-6 bg-background group hover:bg-cream/[0.02] transition-colors duration-500"
+              >
+                <div className="flex items-center gap-4">
+                  <contact.icon className="h-4 w-4 text-cream/40 group-hover:text-cream/80 transition-colors" />
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-cream/30 mb-1">
+                      {contact.label}
+                    </div>
+                    <div className="text-sm text-cream/70 group-hover:text-cream transition-colors">
+                      {contact.value}
+                    </div>
+                  </div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-cream/20 group-hover:text-cream/60 group-hover:translate-x-0.5 transition-all" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="hairline mt-32" />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.6, ease }}
+          className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
+          <span className="font-serif italic text-lg text-cream/40">
+            Wilson Growth
+          </span>
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/20 tabular-nums">
+            © {new Date().getFullYear()} — All rights reserved
+          </span>
         </motion.div>
       </div>
     </section>

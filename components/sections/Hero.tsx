@@ -2,152 +2,118 @@
 
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
-
-const wordVariants = {
-  hidden: { opacity: 0, y: 40, rotateX: -15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
-  const titleWords = ["Galileo", "Wilson"];
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden px-6 sm:px-10 lg:px-16">
       <div className="absolute inset-0 gradient-bg" />
-      
-      {/* Very subtle noise texture */}
-      <div 
-        className="absolute inset-0 opacity-[0.015]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
+      <div className="absolute top-1/3 -left-1/4 w-[600px] h-[600px] bg-gold/[0.04] rounded-full blur-[120px]" />
 
-      {/* Soft glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-white/[0.03] rounded-full blur-[120px]" />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-8"
-        >
-          {/* Location */}
-          <motion.div variants={itemVariants}>
-            <span className="inline-flex items-center gap-2 text-sm text-white/40 tracking-wide">
-              <span className="w-1.5 h-1.5 bg-emerald-500/80 rounded-full animate-pulse" />
-              Dubai, UAE
-            </span>
-          </motion.div>
-
-          {/* Main Title - Large Typography */}
-          <motion.div 
-            variants={itemVariants}
-            className="overflow-hidden"
-          >
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tighter leading-[0.9]">
-              {titleWords.map((word, i) => (
-                <motion.span
-                  key={word}
-                  variants={wordVariants}
-                  className="inline-block gradient-text"
-                  style={{ marginRight: i === 0 ? "0.25em" : 0 }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </h1>
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg sm:text-xl text-white/50 font-light tracking-tight"
-          >
-            Founder of Wilson Growth
-          </motion.p>
-
-          {/* Description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-base sm:text-lg text-white/35 max-w-lg mx-auto leading-relaxed"
-          >
-            Strategic growth and advisory for ambitious companies. 
-            Scaling through AI, partnerships, and data-driven execution.
-          </motion.p>
-
-          {/* Social Links */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 lg:gap-20 items-center pt-24 lg:pt-0">
+        {/* Left — type */}
+        <div className="lg:col-span-7 space-y-10">
           <motion.div
-            variants={itemVariants}
-            className="flex justify-center gap-6 pt-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease }}
+            className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-cream/40"
           >
-            <a 
-              href="https://x.com/galileowilson" 
-              target="_blank" 
+            <span className="w-1.5 h-1.5 bg-emerald-400/70 rounded-full animate-pulse" />
+            Dubai · New York
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease, delay: 0.1 }}
+            className="font-serif text-[clamp(3.5rem,10vw,8rem)] leading-[0.95] tracking-display gradient-text"
+          >
+            <span className="block">Galileo</span>
+            <span className="block italic text-cream/70">Wilson</span>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease, delay: 0.35 }}
+            className="max-w-xl space-y-5"
+          >
+            <p className="text-base sm:text-lg text-cream/60 leading-relaxed font-sans">
+              Founder of{" "}
+              <span className="text-cream/90 font-serif italic">
+                Wilson Growth
+              </span>
+              — a strategic advisory firm scaling ambitious companies through
+              AI, partnerships, and data-driven execution.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease, delay: 0.55 }}
+            className="flex items-center gap-6 pt-2"
+          >
+            <a
+              href="https://x.com/galileowilson"
+              target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-sm text-cream/40 hover:text-cream transition-colors duration-500"
             >
               <Twitter className="h-4 w-4" />
-              <span className="text-sm">@galileowilson</span>
+              <span>@galileowilson</span>
             </a>
-            <a 
-              href="#" 
-              className="group flex items-center gap-2 text-white/30 hover:text-white/70 transition-colors duration-300"
+            <span className="text-cream/15">/</span>
+            <a
+              href="https://www.linkedin.com/in/galileowilson/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-sm text-cream/40 hover:text-cream transition-colors duration-500"
             >
               <Linkedin className="h-4 w-4" />
-              <span className="text-sm">LinkedIn</span>
+              <span>LinkedIn</span>
             </a>
           </motion.div>
+        </div>
+
+        {/* Right — portrait */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, ease }}
+          className="lg:col-span-5 relative"
+        >
+          <div className="relative aspect-[4/5] max-w-md mx-auto lg:ml-auto">
+            <div className="absolute -inset-6 bg-gold/[0.06] blur-2xl rounded-full" />
+            <div className="relative h-full w-full overflow-hidden rounded-[2px] border border-cream/10">
+              <Image
+                src="/profile.jpg"
+                alt="Galileo Wilson"
+                fill
+                sizes="(min-width: 1024px) 40vw, 80vw"
+                priority
+                className="object-cover grayscale-[0.15] contrast-[1.05]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+            </div>
+            <div className="absolute -bottom-3 left-0 right-0 flex justify-between text-[10px] uppercase tracking-[0.3em] text-cream/30 font-sans">
+              <span>Portrait</span>
+              <span>MMXXVI</span>
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator - minimal */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1.6, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.4em] text-cream/25 font-sans"
       >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-5 h-8 rounded-full border border-white/10 flex justify-center pt-2"
-        >
-          <div className="w-0.5 h-1.5 bg-white/30 rounded-full" />
-        </motion.div>
+        Scroll
       </motion.div>
     </section>
   );

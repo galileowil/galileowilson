@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +8,8 @@ import Image from "next/image";
 const projects = [
   {
     title: "Raydium",
-    description: "Strategic growth initiatives for leading Solana DEX. Driving liquidity expansion and trading volume through targeted partnerships.",
+    description:
+      "Strategic growth initiatives for leading Solana DEX. Driving liquidity expansion and trading volume through targeted partnerships.",
     tags: ["DeFi", "Solana"],
     link: "https://x.com/Raydium",
     logo: "/raydium.png",
@@ -17,7 +17,8 @@ const projects = [
   },
   {
     title: "Avalanche",
-    description: "Ecosystem growth and strategic advisory for Layer 1 blockchain platform. Scaling solutions and developer onboarding.",
+    description:
+      "Ecosystem growth and strategic advisory for Layer 1 blockchain platform. Scaling solutions and developer onboarding.",
     tags: ["Layer 1", "Blockchain"],
     link: "https://x.com/avax",
     logo: "/avalanche.png",
@@ -25,7 +26,8 @@ const projects = [
   },
   {
     title: "Ronin Network",
-    description: "Growth strategy for gaming-focused blockchain powering Axie Infinity. NFT ecosystem development.",
+    description:
+      "Growth strategy for gaming-focused blockchain powering Axie Infinity. NFT ecosystem development.",
     tags: ["Gaming", "NFT"],
     link: "https://x.com/Ronin_Network",
     logo: "/ronin.png",
@@ -33,7 +35,8 @@ const projects = [
   },
   {
     title: "Abstract Chain",
-    description: "Consumer blockchain platform focused on mainstream adoption. Strategic positioning and go-to-market.",
+    description:
+      "Consumer blockchain platform focused on mainstream adoption. Strategic positioning and go-to-market.",
     tags: ["Blockchain", "Consumer"],
     link: "https://x.com/AbstractChain",
     logo: "/abstract.jpg",
@@ -41,7 +44,8 @@ const projects = [
   },
   {
     title: "OpenLedger",
-    description: "DeFi infrastructure and growth strategy. Building the future of decentralized financial systems.",
+    description:
+      "DeFi infrastructure and growth strategy. Building the future of decentralized financial systems.",
     tags: ["DeFi", "Infrastructure"],
     link: "https://x.com/OpenledgerHQ",
     logo: "/openledger.jpg",
@@ -49,7 +53,8 @@ const projects = [
   },
   {
     title: "NEAR Protocol",
-    description: "Ecosystem development and strategic partnerships for scalable Layer 1 blockchain.",
+    description:
+      "Ecosystem development and strategic partnerships for scalable Layer 1 blockchain.",
     tags: ["Layer 1", "Blockchain"],
     link: "https://x.com/nearprotocol",
     logo: "/near.png",
@@ -57,27 +62,12 @@ const projects = [
   },
   {
     title: "Pudgy Penguins",
-    description: "Strategic advisory for leading NFT brand and consumer IP. Brand expansion and community growth.",
+    description:
+      "Strategic advisory for leading NFT brand and consumer IP. Brand expansion and community growth.",
     tags: ["NFT", "Brand"],
     link: "https://x.com/pudgypenguins",
     logo: "/pudgy.png",
     featured: true,
-  },
-  {
-    title: "Sophon",
-    description: "DeFi infrastructure and growth advisory. Building next-generation financial primitives.",
-    tags: ["DeFi", "Infrastructure"],
-    link: "https://x.com/Sophon",
-    logo: "/sophon.png",
-    featured: false,
-  },
-  {
-    title: "Zoku",
-    description: "Advisory role focused on affiliate business development and strategic growth.",
-    tags: ["Advisory"],
-    link: "https://x.com/zokuxyz",
-    logo: "/zoku.png",
-    featured: false,
   },
   {
     title: "Sportfun",
@@ -86,6 +76,24 @@ const projects = [
     link: "https://x.com/sportfun",
     logo: "/sportfun.png",
     featured: true,
+  },
+  {
+    title: "Sophon",
+    description:
+      "DeFi infrastructure and growth advisory. Building next-generation financial primitives.",
+    tags: ["DeFi", "Infrastructure"],
+    link: "https://x.com/Sophon",
+    logo: "/sophon.png",
+    featured: false,
+  },
+  {
+    title: "Zoku",
+    description:
+      "Advisory role focused on affiliate business development and strategic growth.",
+    tags: ["Advisory"],
+    link: "https://x.com/zokuxyz",
+    logo: "/zoku.png",
+    featured: false,
   },
   {
     title: "Legacy Network",
@@ -129,168 +137,149 @@ const projects = [
   },
 ];
 
-const featuredProjects = projects.filter(p => p.featured);
-const otherProjects = projects.filter(p => !p.featured);
+const featuredProjects = projects.filter((p) => p.featured);
+const otherProjects = projects.filter((p) => !p.featured);
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-32 sm:py-40 relative" ref={ref}>
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+    <section id="projects" className="py-32 sm:py-48 relative" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease }}
+          className="mb-20 flex items-baseline justify-between"
         >
-          {/* Section label */}
-          <motion.div variants={itemVariants} className="mb-12">
-            <span className="text-xs uppercase tracking-[0.2em] text-white/30 font-medium">
-              Projects
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight"
-          >
-            Selected Work
-          </motion.h2>
-          
-          <motion.p 
-            variants={itemVariants}
-            className="text-white/40 text-lg mb-20 max-w-xl leading-relaxed"
-          >
-            Strategic growth and advisory work with leading Web3 projects, 
-            DeFi protocols, and blockchain ecosystems.
-          </motion.p>
-
-          {/* Featured Projects - Clean Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-20">
-            {featuredProjects.map((project, index) => (
-              <motion.a
-                key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.2 + index * 0.08,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                className="group block"
-              >
-                <div className="p-6 rounded-lg border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500 h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      {project.logo ? (
-                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center overflow-hidden">
-                          <Image 
-                            src={project.logo} 
-                            alt={project.title}
-                            width={32}
-                            height={32}
-                            className="object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                          <span className="text-white/40 text-xs font-medium">
-                            {project.title.slice(0, 2).toUpperCase()}
-                          </span>
-                        </div>
-                      )}
-                      <h3 className="text-lg font-medium text-white group-hover:text-white/90 transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
-                    <ArrowUpRight className="h-4 w-4 text-white/20 group-hover:text-white/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-
-                  <p className="text-white/40 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span 
-                        key={tag} 
-                        className="text-xs text-white/30 px-2 py-1 rounded bg-white/5"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Other Projects - Minimal List */}
-          <motion.div 
-            variants={itemVariants}
-            className="mb-8"
-          >
-            <span className="text-xs uppercase tracking-[0.15em] text-white/20 font-medium">
-              Also Worked With
-            </span>
-          </motion.div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-            {otherProjects.map((project, index) => (
-              <motion.a
-                key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: 0.6 + index * 0.05,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                className="group"
-              >
-                <div className="px-4 py-3 rounded border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-300">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-white/50 group-hover:text-white/70 transition-colors">
-                      {project.title}
-                    </span>
-                    <ArrowUpRight className="h-3 w-3 text-white/10 group-hover:text-white/30 transition-colors" />
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </div>
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/30">
+            — Selected Work
+          </span>
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/20 hidden sm:inline tabular-nums">
+            {String(projects.length).padStart(2, "0")} clients
+          </span>
         </motion.div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, ease, delay: 0.1 }}
+          className="font-serif text-5xl sm:text-6xl lg:text-7xl tracking-display text-cream leading-[0.95] mb-8 max-w-3xl"
+        >
+          Trusted by{" "}
+          <span className="italic text-cream/70">category-defining</span>{" "}
+          teams.
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.25, ease }}
+          className="text-lg text-cream/50 max-w-xl mb-20 leading-relaxed"
+        >
+          Strategic growth and advisory work with leading Web3 projects, DeFi
+          protocols, and blockchain ecosystems.
+        </motion.p>
+
+        <div className="grid md:grid-cols-2 gap-px bg-cream/[0.06] mb-24">
+          {featuredProjects.map((project, index) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.7,
+                delay: 0.3 + index * 0.06,
+                ease,
+              }}
+              className="group block bg-background p-8 hover:bg-cream/[0.02] transition-colors duration-700 relative"
+            >
+              <div className="flex items-start justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  {project.logo ? (
+                    <div className="w-12 h-12 rounded-full bg-cream/5 flex items-center justify-center overflow-hidden ring-1 ring-cream/10">
+                      <Image
+                        src={project.logo}
+                        alt={project.title}
+                        width={36}
+                        height={36}
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-cream/5 flex items-center justify-center ring-1 ring-cream/10">
+                      <span className="text-cream/50 text-xs font-medium">
+                        {project.title.slice(0, 2).toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                  <h3 className="font-serif text-2xl text-cream group-hover:text-cream transition-colors">
+                    {project.title}
+                  </h3>
+                </div>
+                <ArrowUpRight className="h-4 w-4 text-cream/20 group-hover:text-cream/80 transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+
+              <p className="text-cream/45 text-sm leading-relaxed mb-6 max-w-md">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] uppercase tracking-[0.2em] text-cream/30 px-3 py-1 rounded-full border border-cream/10"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.a>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.4, ease }}
+          className="mb-8"
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-cream/30">
+            — Also worked with
+          </span>
+        </motion.div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-cream/[0.06]">
+          {otherProjects.map((project, index) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: 0.5 + index * 0.04,
+                ease,
+              }}
+              className="group bg-background px-5 py-5 hover:bg-cream/[0.02] transition-colors duration-500"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-serif text-base text-cream/70 group-hover:text-cream transition-colors">
+                  {project.title}
+                </span>
+                <ArrowUpRight className="h-3 w-3 text-cream/10 group-hover:text-cream/50 transition-colors" />
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );

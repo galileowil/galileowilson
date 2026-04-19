@@ -4,26 +4,31 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
+    /* Warm dark — editorial, not pure black */
+    --background: 30 6% 5%;
+    --foreground: 35 20% 94%;
+    --card: 30 6% 6%;
+    --card-foreground: 35 20% 94%;
+    --popover: 30 6% 6%;
+    --popover-foreground: 35 20% 94%;
+    --primary: 35 20% 94%;
+    --primary-foreground: 30 6% 5%;
+    --secondary: 30 5% 10%;
+    --secondary-foreground: 35 20% 94%;
+    --muted: 30 5% 14%;
+    --muted-foreground: 35 10% 60%;
+    --accent: 30 5% 12%;
+    --accent-foreground: 35 20% 94%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 0% 80%;
+    --border: 30 5% 14%;
+    --input: 30 5% 14%;
+    --ring: 35 15% 80%;
     --radius: 0.5rem;
+
+    /* Brand palette */
+    --cream: 35 25% 92%;
+    --gold: 38 35% 70%;
   }
 }
 
@@ -31,14 +36,43 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
   }
-  html {
-    scroll-behavior: smooth;
+
+  @media (max-width: 768px), (hover: none) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  /* Hide native cursor on interactive elements — custom cursor handles it */
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+
+  @media (max-width: 768px), (hover: none) {
+    a,
+    button,
+    [role="button"] {
+      cursor: pointer;
+    }
+  }
+
+  ::selection {
+    background: hsl(var(--cream) / 0.15);
+    color: hsl(var(--cream));
   }
 }
 
@@ -46,24 +80,63 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Gradient text with subtle fade */
+
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+      sans-serif;
+  }
+
+  /* Editorial cream gradient for display headlines */
   .gradient-text {
-    @apply bg-gradient-to-br from-white via-white/90 to-white/60 bg-clip-text text-transparent;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--cream)) 0%,
+      hsl(var(--cream) / 0.75) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-  
-  /* Subtle gradient background */
+
+  /* Very subtle hero glow */
   .gradient-bg {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,255,255,0.08), transparent);
+    background: radial-gradient(
+      ellipse 70% 45% at 50% -10%,
+      hsl(var(--gold) / 0.07),
+      transparent 70%
+    );
   }
-  
-  /* Tighter letter spacing for headings */
+
   .tracking-tighter {
     letter-spacing: -0.04em;
   }
-  
-  /* Smooth section transitions */
-  .section-fade {
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+
+  .tracking-display {
+    letter-spacing: -0.02em;
+  }
+
+  /* Grain overlay — adds physicality */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hairline {
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--cream) / 0.15),
+      transparent
+    );
+    height: 1px;
   }
 }
